@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+	
+body {
+    font-family: 'Space Mono', monospace;
+    background: linear-gradient( 109.6deg,  rgba(61,245,167,1) 11.2%, rgba(9,111,224,1) 91.1% );
+    background-position: center;
+	  background-size: cover;
+	  background-attachment: fixed;
+	  text-align: center;
+    }
+    
+    #seleccionar-mascota {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .titulo {
+      color: white;
+      margin-top: 5px;
+      font-size: 150px;
+      margin-bottom: 5px;
+    }
+    
+    .subtitulo {
+      color: white;
+      font-size: 40px;
+    }
+    
+    .tarjetas, .tarjetas-ataques {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .tarjeta-de-mokepon {
+      flex-direction: column;
+      padding-top: 40px;
+      font-size: 20px;
+      margin-top: 30px;
+      width: 150px;
+      height: 100px;
+      background-color: #182848;
+      padding-bottom: 60px;
+      box-sizing: content-box;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .tarjeta-de-mokepon img {
+      width: 140px;
+    }
+
+    #boton-mascota{
+        font-size: 20px;
+        margin-top: 90px;
+        width: 290px;
+        height: 50px;
+        border-radius: 20px;
+        background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+        border: 2px solid white;
+        color: white;
+        font-family: 'Press Start 2P', cursive;
+    }
+
+  input {
+    display: none;
+    }
+  
+  input:hover + label {
+    border-style: solid; 
+    border-color: goldenrod;
+    border-width: 5px;
+  }
+  input:checked + label {
+    background-color: goldenrod;
+  }
+  
+  input:hover + label.boton-de-ataque {
+    border-style: solid; 
+    border-color: goldenrod;
+    border-width: 5px;
+  } 
+
+    #seleccionar-ataque {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boton-de-ataque {
+        background: #182848;
+        font-size: 30px;
+        padding: 10px;
+        box-sizing: content-box;
+        border-radius: 20px;
+        margin-top: 10px;
+        width: 200px;
+        height: 50px;
+        border-radius: 20px;
+        border: 2px solid white;
+        color: white;
+        font-family: 'Space Mono', monospace;
+    }
+
+    #mensajes {
+       color: white;
+       font-size: 40px;
+       border: 2px solid white;
+       box-sizing: content-box;
+       padding: 15px;
+       border-radius: 20px;
+       margin-top: 50px;
+       background-image: radial-gradient( circle 976px at 51.2% 51%,  rgba(11,27,103,1) 0%, rgba(16,66,157,1) 0%, rgba(11,27,103,1) 17.3%, rgba(11,27,103,1) 58.8%, rgba(11,27,103,1) 71.4%, rgba(16,66,157,1) 100.2%, rgba(187,187,187,1) 100.2% ); 
+       display: flex;
+       align-items: center;  
+       flex-direction: column; 
+       font-family: 'Space Mono', monospace;
+    }
+
+    #boton-reiniciar {
+      font-family: 'Press Start 2P', cursive;
+      justify-content: center;
+      margin-top: 40px;
+      width: 150px;
+      height: 45px;
+      border: 2px solid black;
+      color: black
+      
+    }
+    .ataques {
+      display: grid;
+      grid-template-columns: 100px 100px;
+      color: white;
+    }
+    
+    #vidas-jugador, #vidas-enemigo {
+      font-size: 30px;
+      margin-bottom: 0;
+    }
+    
+    .ataques-jugador, .ataques-enemigo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+@media (max-width: 360px) {
+  .tarjetas, .tarjetas-ataques {
+        flex-direction: column;
+      }
+    }
