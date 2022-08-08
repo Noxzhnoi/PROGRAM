@@ -149,7 +149,7 @@ body {
     }
     
     #vidas-jugador, #vidas-enemigo {
-      font-size: 30px;
+      font-size: 35px;
       margin-bottom: 0;
     }
     
@@ -157,6 +157,9 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-size: 20px;
+      font-family: 'Space Mono', monospace;
+
     }
 
 @media (max-width: 360px) {
