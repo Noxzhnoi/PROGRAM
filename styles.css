@@ -64,12 +64,16 @@ body {
         width: 290px;
         height: 50px;
         border-radius: 20px;
-        background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+        background-color: #182848;
         border: 2px solid white;
         color: white;
         font-family: 'Press Start 2P', cursive;
     }
 
+    .boton-mascota:hover {
+      background-color: aqua;
+    }
+    
   input {
     display: none;
     }
@@ -83,12 +87,6 @@ body {
     background-color: goldenrod;
   }
   
-  input:hover + label.boton-de-ataque {
-    border-style: solid; 
-    border-color: goldenrod;
-    border-width: 5px;
-  } 
-
     #seleccionar-ataque {
         display: flex;
         flex-direction: column;
@@ -109,6 +107,11 @@ body {
         color: white;
         font-family: 'Space Mono', monospace;
     }
+    .boton-de-ataque:hover{
+      background-color: goldenrod;
+      border-color: black;
+      border-style: double;
+      }
 
     #mensajes {
        color: white;
@@ -132,12 +135,16 @@ body {
       width: 150px;
       height: 45px;
       border: 2px solid black;
-      color: black
-      
+      color: black   
     }
+
+    .boton-reiniciar:hover {
+      background-color: goldenrod;
+    }
+
     .ataques {
       display: grid;
-      grid-template-columns: 100px 100px;
+      grid-template-columns: 300px 300px;
       color: white;
     }
     
