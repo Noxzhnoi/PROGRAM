@@ -159,8 +159,8 @@ body {
       align-items: center;
       font-size: 20px;
       font-family: 'Space Mono', monospace;
-
     }
+    
 
 @media (max-width: 360px) {
   .tarjetas, .tarjetas-ataques {
