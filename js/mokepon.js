@@ -188,15 +188,17 @@ function seleccionarMascotaEnemigo() {
 }
 
 function ataqueAleatorioEnemigo() {
-    let ataqueAleatorio = aleatorio(0,ataquesMokeponEnemigo.length -1)
-    
-    if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
-        ataqueEnemigo.push('FIRE')
-    } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
-        ataqueEnemigo.push('WATER')
-    } else {
-        ataqueEnemigo.push('EARTH')
-    }
+        let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length - 1);
+        let ataque = ataquesMokeponEnemigo[ataqueAleatorio].nombre;
+        ataquesMokeponEnemigo.splice(ataqueAleatorio, 1);
+       
+        if (ataque == "🔥") {
+          ataqueEnemigo.push("FIRE");          
+        } else if (ataque == "💧") {
+          ataqueEnemigo.push("WATER");      
+        } else 
+          ataqueEnemigo.push("EARTH");          
+    console.log(ataquesMokeponEnemigo)
     iniciarPelea()
 }
 
