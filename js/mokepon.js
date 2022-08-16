@@ -25,6 +25,9 @@ let opcionDeMokepones
 let inputHipodoge 
 let inputCapipepo 
 let inputRatigueya
+let inputLangostelvis
+let inputPydos
+let inputTucapalma
 let mascotaJugador
 let ataquesMokepon
 let ataquesMokeponEnemigo
@@ -40,19 +43,27 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 
 class Mokepon {
-    constructor(nombre, foto, vida) {
+    constructor(nombre, foto, vida, tipo) {
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
+        this.tipo = tipo
         this.ataques = []
+        
     }
 }  
 
-let hipodoge = new Mokepon('Hipodoge', './assets/mokepons_mokepon_hipodoge_attack.png', 5)
+let hipodoge = new Mokepon('Hipodoge', './assets/mokepons_mokepon_hipodoge_attack.png', 5,'agua')
 
-let capipepo = new Mokepon('Capipepo', './assets/mokepons_mokepon_capipepo_attack.png', 5)
+let capipepo = new Mokepon('Capipepo', './assets/mokepons_mokepon_capipepo_attack.png', 5,'tierra')
 
-let ratigueya = new Mokepon('Ratigueya', './assets/mokepons_mokepon_ratigueya_attack.png', 5)
+let ratigueya = new Mokepon('Ratigueya', './assets/mokepons_mokepon_ratigueya_attack.png', 5,'fuego')
+
+let langostelvis = new Mokepon('Langostelvis', './assets/mokepons_mokepon_langostelvis_attack.webp', 5,'fuego')
+
+let pydos = new Mokepon('Pydos', './assets/mokepons_mokepon_pydos_attack.webp', 5,'agua')
+
+let tucapalma = new Mokepon('Tucapalma', './assets/mokepons_mokepon_tucapalma_attack.webp', 5,'tierra')
 
 hipodoge.ataques.push(
     { nombre: '💧', id: 'boton-agua'},
@@ -78,7 +89,31 @@ ratigueya.ataques.push(
     { nombre: '🌱', id: 'boton-tierra'},
 )
 
-mokepones.push(hipodoge,capipepo,ratigueya)
+langostelvis.ataques.push(
+    { nombre: '🔥', id: 'boton-fuego'},
+    { nombre: '🔥', id: 'boton-fuego'},
+    { nombre: '🔥', id: 'boton-fuego'},
+    { nombre: '💧', id: 'boton-agua'},
+    { nombre: '🌱', id: 'boton-tierra'},
+)
+
+pydos.ataques.push(
+    { nombre: '💧', id: 'boton-agua'},
+    { nombre: '💧', id: 'boton-agua'},
+    { nombre: '💧', id: 'boton-agua'},
+    { nombre: '🌱', id: 'boton-tierra'},
+    { nombre: '🔥', id: 'boton-fuego'},
+)
+
+tucapalma.ataques.push(
+    { nombre: '🌱', id: 'boton-tierra'},
+    { nombre: '🌱', id: 'boton-tierra'},
+    { nombre: '🌱', id: 'boton-tierra'},
+    { nombre: '💧', id: 'boton-agua'},
+    { nombre: '🔥', id: 'boton-fuego'},
+)
+
+mokepones.push(hipodoge,capipepo,ratigueya,langostelvis,pydos,tucapalma)
 
 function iniciarJuego() {
     
@@ -97,6 +132,9 @@ function iniciarJuego() {
      inputHipodoge = document.getElementById('Hipodoge')
      inputCapipepo = document.getElementById('Capipepo')
      inputRatigueya = document.getElementById('Ratigueya')
+     inputLangostelvis = document.getElementById('Langostelvis')
+     inputPydos = document.getElementById('Pydos')
+     inputTucapalma = document.getElementById('Tucapalma')
 
     })
 
@@ -120,6 +158,15 @@ function seleccionarMascotaJugador() {
     } else if (inputRatigueya.checked) {
         spanMascotaJugador.innerHTML = inputRatigueya.id
         mascotaJugador = inputRatigueya.id
+    } else if (inputLangostelvis.checked) {
+        spanMascotaJugador.innerHTML = inputLangostelvis.id
+        mascotaJugador = inputLangostelvis.id
+    } else if (inputPydos.checked) {
+        spanMascotaJugador.innerHTML = inputPydos.id
+        mascotaJugador = inputPydos.id
+    } else if (inputTucapalma.checked) {
+        spanMascotaJugador.innerHTML = inputTucapalma.id
+        mascotaJugador = inputTucapalma.id
     } else {
         alert('Selecciona una mascota')
     }
@@ -130,22 +177,42 @@ function seleccionarMascotaJugador() {
 
 function extraerAtaques(mascotaJugador) {
     let ataques
+    let tipo
     for (let i = 0; i < mokepones.length; i++) {
         if (mascotaJugador === mokepones[i].nombre) {
             ataques = mokepones[i].ataques
+            tipo = mokepones[i].tipo
         }
         
     }
-    mostrarAtaques(ataques)
+    console.log(tipo)
+    mostrarAtaques(ataques, tipo)
 }
 
-function mostrarAtaques(ataques) {
+function mostrarAtaques(ataques, tipo) {
     ataques.forEach((ataque) => {
         ataquesMokepon = `
         <button id=${ataque.id} class="boton-de-ataque BAtaque">${ataque.nombre}</button>
         `
         contenedorAtaques.innerHTML += ataquesMokepon
     })
+
+    if(tipo == 'fuego'){
+        ataquesMokepon = `
+        <button id=boton-fuego class="boton-de-ataque BAtaque">🔥</button>
+        `
+        contenedorAtaques.innerHTML = ataquesMokepon + contenedorAtaques.innerHTML
+    } else if (tipo == 'agua') {
+        ataquesMokepon = `
+        <button id=boton-agua class="boton-de-ataque BAtaque">💧</button>
+        `
+        contenedorAtaques.innerHTML = ataquesMokepon + contenedorAtaques.innerHTML
+    } else {
+        ataquesMokepon = `
+        <button id=boton-tierra class="boton-de-ataque BAtaque">🌱</button>
+        `
+        contenedorAtaques.innerHTML = ataquesMokepon + contenedorAtaques.innerHTML
+    }
 
      botonFuego = document.getElementById('boton-fuego')
      botonAgua = document.getElementById('boton-agua')
